@@ -23,6 +23,12 @@ const app = new Vue({
     methods: { 
     },
 
-    
+    mounted(){
+        axios.get("https://flynn.boolean.careers/exercises/api/random/mail").then(myResp => {
+            console.log(myResp);
+            this.emails.push(myResp.data.response)}).catch(e => {console.error(e, "OPS!"); this.error = e})
+    }
+
 })
+
 
